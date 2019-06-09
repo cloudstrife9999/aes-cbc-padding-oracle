@@ -1,2 +1,3 @@
 .sonarlint
 *.pyc
+test
