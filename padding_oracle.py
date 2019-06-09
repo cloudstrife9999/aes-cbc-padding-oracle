@@ -15,7 +15,7 @@ ctx_original_length: int = -1
 
 
 #
-# This method prints (to screen and to a file) a block of recovered ptx.
+# This method prints to screen a block of recovered ptx, and stores it in a shared dictionary.
 #
 # This method takes in input:
 #   - the recovered block of ptx (as a string)
