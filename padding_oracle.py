@@ -350,17 +350,17 @@ def main() -> None:
     # We initialize the argument parser.
     parser: ArgumentParser = ArgumentParser()
 
-    # This needs to be the ip address (or hostname) of the padding oracle. No schema (e.g., http:// or https://).
-    parser.add_argument("-u", "--host", required=True, type=str, metavar="host")
+    # This needs to be the ip address (or hostname) of the padding oracle. No scheme (e.g., http:// or https://).
+    parser.add_argument("-u", "--host", required=True, type=str, metavar="host", help="The ip address (or hostname) of the padding oracle without scheme.")
 
     # This needs to be a user-specific ID which will be part of the padding oracle url.
-    parser.add_argument("-i", "--vm-id", required=True, type=str, metavar="vm_id")
+    parser.add_argument("-i", "--vm-id", required=True, type=str, metavar="vm_id", help="The ID of the VM of the challenge - Hacker101 specific.")
 
     # This needs to be the raw ctx as a url-compliant Base64 string.
-    parser.add_argument("-c", "--ctx", required=True, type=str, metavar="ctx")
+    parser.add_argument("-c", "--ctx", required=True, type=str, metavar="ctx", help="The url-ized Base64 of (iv+ctx). To url-ize means replace (=, /, +) with (~, !, -)")
 
     # This needs to be a pattern that, if found in the oracle's response, indicates a padding error.
-    parser.add_argument("-e", "--oracle-error-pattern", required=True, metavar="oracle_error_pattern")
+    parser.add_argument("-e", "--oracle-error-pattern", required=True, metavar="oracle_error_pattern", help="The pattern to look for in the oracle response to indicate a padding error.")
     
     # We parse the cli arguments.
     args: Namespace = parser.parse_args()
