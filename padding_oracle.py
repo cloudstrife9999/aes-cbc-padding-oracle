@@ -52,7 +52,7 @@ def divide_ctx_into_progressively_smaller_chunks(ctx: bytearray) -> list:
     chunks: list = []
 
     # We want to hard fail if the ctx has a length which is not a multiple of 16 (because the ctx must fit perfectly into an integer number of blocks).
-    assert (len(ctx) % 16) == 0, "The ctx chunk have a length which is a multiple of 16."
+    assert (len(ctx) % 16) == 0, "The ctx chunk must have a length which is a multiple of 16."
 
     # We do not create a chunk of 16 bytes only, because the first 16 bytes are the iv, and, therefore, only matter for forging purposes.
     while len(ctx) >= 32:
